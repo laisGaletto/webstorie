@@ -5,7 +5,7 @@ import ProductsList from "../ProductsList";
 import ExclusiveSection from "../ExclusiveSection";
 import TestimonialsList from "../TestimonialsList";
 
-export default function HomePage({products, setShowSidebarCart , showSidebarCart, addProductToCart, selectedProducts, cartTotal, removeProductFromCart}) {
+export default function HomePage({products, setShowSidebarCart , showSidebarCart, addProductToCart, selectedProducts, cartTotal, removeProductFromCart, addCartTotal}) {
   
   return <>
       <Header />
@@ -15,6 +15,7 @@ export default function HomePage({products, setShowSidebarCart , showSidebarCart
       showSidebarCart={showSidebarCart}
       selectedProducts={selectedProducts}
       cartTotal={cartTotal}
+      addCartTotal={addCartTotal}
     />
       <div className="page-inner-content">
         <div className="section-title">

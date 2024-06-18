@@ -4,7 +4,7 @@ import React from "react";
 import SidebarProduct from "./SidebarProduct";
 import { Link } from "react-router-dom";
 
-export default function SidebarCart({setShowSidebarCart, showSidebarCart, selectedProducts, cartTotal, removeProductFromCart}) {
+export default function SidebarCart({setShowSidebarCart, showSidebarCart, selectedProducts, cartTotal, removeProductFromCart, addCartTotal}) {
   return (
     <aside className={`sidebar-cart ${showSidebarCart && "show"}`}>
       <div className="top">
@@ -16,7 +16,12 @@ export default function SidebarCart({setShowSidebarCart, showSidebarCart, select
 
       <div className="sidebar-products-list">
         {selectedProducts.map((product) => (
-          <SidebarProduct key={product.id} {...product} removeProductFromCart={removeProductFromCart} />
+          <SidebarProduct
+            key={product.id}
+            {...product}
+            removeProductFromCart={removeProductFromCart}
+            addCartTotal={addCartTotal}
+          />
         ))}
       </div>
 

@@ -11,6 +11,10 @@ function App() {
   const [selectedProducts, setSelectedProducts] = useState([])
   const [cartTotal, setCartTotal] = useState(0)
 
+  const addCartTotal = (value) => {
+    setCartTotal(cartTotal + value)
+  }
+
   useEffect(() => {
     fetch('/db.json')
       .then((res) => res.json())
@@ -46,6 +50,7 @@ function App() {
                 selectedProducts={selectedProducts}
                 removeProductFromCart={removeProductFromCart}
                 cartTotal={cartTotal}
+                addCartTotal={addCartTotal}
               />
             }
             />

@@ -2,15 +2,21 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-export default function SidebarProduct({ id, image, name, rate, price, removeProductFromCart }) {
+export default function SidebarProduct({ id, image, name, rate, price, removeProductFromCart, addCartTotal}) {
   const [quantity, setQuantity] = useState(1)
   const [priceSum, setPriceSum] = useState(price)
   
+  const changeCartTotal = () => {
+
+  }
 
   return (
     <div className="sidebar-product">
       <div className="left-side">
-        <button className="remove-product-btn" onClick={() => {removeProductFromCart(id)}}>
+        <button className="remove-product-btn" onClick={() => {
+          removeProductFromCart(id)
+          addCartTotal(-priceSum)
+        }}>
           <FontAwesomeIcon icon={faXmark}/>
         </button>
 
@@ -24,6 +30,7 @@ export default function SidebarProduct({ id, image, name, rate, price, removePro
             value={quantity}
             onChange={(e) => {
               setQuantity(e.target.value)
+              addCartTotal(e.target.value * price - priceSum)
               setPriceSum(e.target.value * price )
             }}
           />
